@@ -1,0 +1,27 @@
+/*
+all: a.out
+
+a.out: fileRead.c main.c
+	gcc -std=c99 -Wall fileRead.c main.c -I../include
+
+*/
+OBJ = fileRead.o main.o
+CC  = gcc
+INCLUDE = ../include
+CFLAGS = -std=c99 -Wall -I$(INCLUDE)
+
+all: a.out
+
+a.out: $(OBJ)
+	gcc fileRead.o main.o
+fileRead.o: fileRead.c
+	gcc -c fileRead.c -I../include
+
+main.o: main.c
+	gcc -c main.c -I../include
+clean:
+	rm $(OBJ)
+
+
+//look up macros if you have free time
+//look up makefile stuff
